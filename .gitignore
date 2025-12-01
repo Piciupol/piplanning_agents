@@ -1,0 +1,26 @@
+# Configuration
+config.yaml
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-wheel-metadata/
+
+# Streamlit
+.streamlit/
+
+# Output artifacts
+output/
+*.log
+
+# IDEs
+.vscode/
+.idea/
+.DS_Store

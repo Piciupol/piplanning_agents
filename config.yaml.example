@@ -1,0 +1,72 @@
+# PI Planning Application Configuration Example
+# Rename to config.yaml and fill in your values
+
+# Azure DevOps Settings
+ado:
+  org_url: "https://dev.azure.com/YOUR_ORG"
+  pat: "YOUR_PAT_TOKEN"
+  project: "YOUR_PROJECT"
+
+# Azure OpenAI Settings (Optional - for enhanced insights)
+azure_openai:
+  key: "YOUR_AZURE_OPENAI_KEY"
+  endpoint: "https://your-resource.openai.azure.com/"
+  deployment: "gpt-4"
+  api_version: "2024-02-15-preview"
+
+# ADO Field Mappings (Make the app agnostic to ADO process template)
+ado_mapping:
+  # Core fields
+  title: "System.Title"
+  description: "System.Description"
+  state: "System.State"
+  assigned_to: "System.AssignedTo"
+  area_path: "System.AreaPath"
+  iteration_path: "System.IterationPath"
+  work_item_type: "System.WorkItemType"
+  
+  # Agile/Scrum fields
+  effort: "Microsoft.VSTS.Scheduling.StoryPoints"  # Or "Microsoft.VSTS.Scheduling.Effort"
+  priority: "Microsoft.VSTS.Common.Priority"
+  business_value: "Microsoft.VSTS.Common.BusinessValue"
+  target_date: "System.TargetDate"
+
+# Application Defaults
+defaults:
+  # Default Iterations/Sprints configuration
+  sprints:
+    count: 5
+    length_weeks: 2
+    start_date: "2025-01-01"
+    # Optional: Fixed end dates
+    # end_dates:
+    #   - "2025-01-15"
+    #   - "2025-01-29"
+
+  # Default Teams configuration
+  teams:
+    - name: "Team A"
+      id: "team_a"
+      default_capacity: 40
+      # Optional: Varied capacity per sprint
+      # capacity_pattern: [40, 35, 40, 40, 30]
+    - name: "Team B"
+      id: "team_b"
+      default_capacity: 35
+
+  # Default ADO Queries (Optional)
+  queries:
+    features_query_id: "" # UUID
+    area_path: "Project\\Area"
+    iteration_path: "Project\\Iteration"
+
+  # Owner to Team Mapping (Optional)
+  owner_mapping:
+    "John Doe": "Team A"
+    "Jane Smith": "Team B"
+
+# Application System Settings
+app:
+  default_output_dir: "output"
+  default_max_rounds: 3
+  capacity_buffer: 0.0 # 0.0 - 1.0 (e.g., 0.20 for 20% buffer)

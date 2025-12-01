@@ -1,0 +1,191 @@
+{
+  "features": [
+    {
+      "id": 5,
+      "title": "Core Infrastructure (Bottleneck)",
+      "description": "Base infrastructure required by everyone",
+      "state": "new",
+      "priority": "critical",
+      "business_value": 100.0,
+      "cost_of_delay": 100.0,
+      "effort": 16.0,
+      "dependencies": [],
+      "assigned_team": "team-c",
+      "user_stories": [
+        { "id": 51, "title": "Setup Core DB", "feature_id": 5, "assigned_team": "team-c", "effort": 8.0, "depends_on_features": [], "depends_on_stories": [] },
+        { "id": 52, "title": "Setup Core API Gateway", "feature_id": 5, "assigned_team": "team-c", "effort": 8.0, "depends_on_features": [], "depends_on_stories": [51] }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Backend Services (Dependent on Core)",
+      "description": "Backend logic dependent on infrastructure",
+      "state": "new",
+      "priority": "critical",
+      "business_value": 90.0,
+      "cost_of_delay": 90.0,
+      "effort": 20.0,
+      "dependencies": [5],
+      "assigned_team": "team-b",
+      "user_stories": [
+        { "id": 31, "title": "User Service", "feature_id": 3, "assigned_team": "team-b", "effort": 10.0, "depends_on_features": [5], "depends_on_stories": [] },
+        { "id": 32, "title": "Auth Service", "feature_id": 3, "assigned_team": "team-b", "effort": 10.0, "depends_on_features": [5], "depends_on_stories": [31] }
+      ]
+    },
+    {
+      "id": 1,
+      "title": "Frontend App (Dependent on Backend)",
+      "description": "UI dependent on backend services",
+      "state": "new",
+      "priority": "critical",
+      "business_value": 80.0,
+      "cost_of_delay": 80.0,
+      "effort": 23.0,
+      "dependencies": [3],
+      "assigned_team": "team-a",
+      "user_stories": [
+        { "id": 11, "title": "Login UI", "feature_id": 1, "assigned_team": "team-a", "effort": 10.0, "depends_on_features": [3], "depends_on_stories": [] },
+        { "id": 12, "title": "Dashboard UI", "feature_id": 1, "assigned_team": "team-a", "effort": 8.0, "depends_on_features": [3], "depends_on_stories": [11] },
+        { "id": 13, "title": "Settings UI", "feature_id": 1, "assigned_team": "team-a", "effort": 5.0, "depends_on_features": [3], "depends_on_stories": [11] }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Legacy Maintenance (Small Fillers for Team C)",
+      "description": "Low prio work to fill gaps",
+      "state": "new",
+      "priority": "low",
+      "business_value": 20.0,
+      "cost_of_delay": 10.0,
+      "effort": 14.0,
+      "dependencies": [],
+      "assigned_team": "team-c",
+      "user_stories": [
+        { "id": 61, "title": "Fix legacy bug A", "feature_id": 6, "assigned_team": "team-c", "effort": 3.0, "depends_on_features": [], "depends_on_stories": [] },
+        { "id": 62, "title": "Fix legacy bug B", "feature_id": 6, "assigned_team": "team-c", "effort": 3.0, "depends_on_features": [], "depends_on_stories": [] },
+        { "id": 63, "title": "Fix legacy bug C", "feature_id": 6, "assigned_team": "team-c", "effort": 5.0, "depends_on_features": [], "depends_on_stories": [] },
+        { "id": 64, "title": "Fix legacy bug D", "feature_id": 6, "assigned_team": "team-c", "effort": 3.0, "depends_on_features": [], "depends_on_stories": [] }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Mobile Prototype (Small Fillers for Team B)",
+      "description": "Independent work",
+      "state": "new",
+      "priority": "medium",
+      "business_value": 40.0,
+      "cost_of_delay": 30.0,
+      "effort": 21.0,
+      "dependencies": [],
+      "assigned_team": "team-b",
+      "user_stories": [
+        { "id": 41, "title": "Mobile Mockups 1", "feature_id": 4, "assigned_team": "team-b", "effort": 8.0, "depends_on_features": [], "depends_on_stories": [] },
+        { "id": 42, "title": "Mobile Mockups 2", "feature_id": 4, "assigned_team": "team-b", "effort": 8.0, "depends_on_features": [], "depends_on_stories": [] },
+        { "id": 43, "title": "Mobile Click-dummy", "feature_id": 4, "assigned_team": "team-b", "effort": 5.0, "depends_on_features": [], "depends_on_stories": [] }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Analytics Spike (Small Fillers for Team A)",
+      "description": "Research task",
+      "state": "new",
+      "priority": "medium",
+      "business_value": 30.0,
+      "cost_of_delay": 20.0,
+      "effort": 19.0,
+      "dependencies": [],
+      "assigned_team": "team-a",
+      "user_stories": [
+        { "id": 21, "title": "Research Tools", "feature_id": 2, "assigned_team": "team-a", "effort": 3.0, "depends_on_features": [], "depends_on_stories": [] },
+        { "id": 22, "title": "POC Implementation 1", "feature_id": 2, "assigned_team": "team-a", "effort": 5.0, "depends_on_features": [], "depends_on_stories": [21] },
+        { "id": 23, "title": "POC Implementation 2", "feature_id": 2, "assigned_team": "team-a", "effort": 8.0, "depends_on_features": [], "depends_on_stories": [21] },
+        { "id": 24, "title": "Report", "feature_id": 2, "assigned_team": "team-a", "effort": 3.0, "depends_on_features": [], "depends_on_stories": [23] }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Component Library (Filler for Team A)",
+      "description": "Reusable UI components",
+      "state": "new",
+      "priority": "medium",
+      "business_value": 50.0,
+      "cost_of_delay": 40.0,
+      "effort": 21.0,
+      "dependencies": [],
+      "assigned_team": "team-a",
+      "user_stories": [
+        { "id": 71, "title": "Button Component", "feature_id": 7, "assigned_team": "team-a", "effort": 5.0, "depends_on_features": [], "depends_on_stories": [] },
+        { "id": 72, "title": "Form Components", "feature_id": 7, "assigned_team": "team-a", "effort": 8.0, "depends_on_features": [], "depends_on_stories": [] },
+        { "id": 73, "title": "Table Component", "feature_id": 7, "assigned_team": "team-a", "effort": 8.0, "depends_on_features": [], "depends_on_stories": [] }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Performance Optimization (Filler for Team A)",
+      "description": "Improve app speed",
+      "state": "new",
+      "priority": "low",
+      "business_value": 30.0,
+      "cost_of_delay": 10.0,
+      "effort": 18.0,
+      "dependencies": [],
+      "assigned_team": "team-a",
+      "user_stories": [
+        { "id": 81, "title": "Audit", "feature_id": 8, "assigned_team": "team-a", "effort": 5.0, "depends_on_features": [], "depends_on_stories": [] },
+        { "id": 82, "title": "Image Optimization", "feature_id": 8, "assigned_team": "team-a", "effort": 5.0, "depends_on_features": [], "depends_on_stories": [81] },
+        { "id": 83, "title": "Bundle Size Reduction", "feature_id": 8, "assigned_team": "team-a", "effort": 8.0, "depends_on_features": [], "depends_on_stories": [81] }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "API Documentation (Filler for Team B)",
+      "description": "Document endpoints",
+      "state": "new",
+      "priority": "low",
+      "business_value": 20.0,
+      "cost_of_delay": 10.0,
+      "effort": 16.0,
+      "dependencies": [],
+      "assigned_team": "team-b",
+      "user_stories": [
+        { "id": 91, "title": "Swagger Setup", "feature_id": 9, "assigned_team": "team-b", "effort": 3.0, "depends_on_features": [], "depends_on_stories": [] },
+        { "id": 92, "title": "Endpoint Docs", "feature_id": 9, "assigned_team": "team-b", "effort": 8.0, "depends_on_features": [], "depends_on_stories": [91] },
+        { "id": 93, "title": "Usage Examples", "feature_id": 9, "assigned_team": "team-b", "effort": 5.0, "depends_on_features": [], "depends_on_stories": [92] }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Unit Tests Coverage (Filler for Team C)",
+      "description": "Increase coverage",
+      "state": "new",
+      "priority": "low",
+      "business_value": 30.0,
+      "cost_of_delay": 10.0,
+      "effort": 15.0,
+      "dependencies": [],
+      "assigned_team": "team-c",
+      "user_stories": [
+        { "id": 101, "title": "Core Tests", "feature_id": 10, "assigned_team": "team-c", "effort": 5.0, "depends_on_features": [], "depends_on_stories": [] },
+        { "id": 102, "title": "Edge Cases", "feature_id": 10, "assigned_team": "team-c", "effort": 5.0, "depends_on_features": [], "depends_on_stories": [] },
+        { "id": 103, "title": "Integration Tests", "feature_id": 10, "assigned_team": "team-c", "effort": 5.0, "depends_on_features": [], "depends_on_stories": [] }
+      ]
+    }
+  ],
+  "teams": [
+    {
+      "id": "team-a",
+      "name": "Team Alpha",
+      "capacity_per_iteration": 40
+    },
+    {
+      "id": "team-b",
+      "name": "Team Beta",
+      "capacity_per_iteration": 30
+    },
+    {
+      "id": "team-c",
+      "name": "Team Gamma",
+      "capacity_per_iteration": 20
+    }
+  ]
+}
